@@ -1,0 +1,243 @@
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  font-family: "Hiragino Kaku Gothic ProN", sans-serif;
+}
+
+a {
+  text-decoration: none;
+}
+
+.clear {
+  clear: left;
+}
+
+.container {
+  max-width: 1170px;
+  width: 100%;
+  padding: 0 15px;
+  margin: 0 auto;
+}
+
+.top-wrapper {
+  padding: 180px 0 100px 0;
+  background-image: url(phto/phto01.jpeg);
+  background-size: cover;
+  text-align: center;
+}
+
+.top-wrapper h1 {
+  opacity: 0.9;
+  font-size: 45px;
+  letter-spacing: 5px;
+  font-family: 'Pacifico', cursive;
+  font-style: italic;
+  color: white;
+  -webkit-text-stroke: 1.5px black; 
+}
+
+.top-wrapper p {
+  opacity: 0.9;
+  color: #000000;
+  font-weight: 400;
+}
+
+.btn-wrapper {
+  text-align: center;
+  margin: 20px 0;
+}
+
+.btn-wrapper a {
+  display: inline-flex;        /* ← 重要 */
+  align-items: center;         /* 縦中央 */
+  justify-content: center;     /* 横中央 */
+  width: 180px;                /* 全部同じ幅 */
+  height: 50px;                /* 全部同じ高さ */
+  color: white;
+  border-radius: 4px;
+  font-size: 18px;
+  margin: 5px;
+}
+
+.instagram {
+  background-color: #f750c5;
+  margin-right: 10px;
+}
+
+.music {
+  background-color: #000000;
+  margin-right: 10px;
+}
+
+.twitter {
+  background-color: #55acee;
+}
+
+.btn {
+  padding: 8px 24px;
+  color: white;
+  display: inline-block;
+  opacity: 0.8;
+  border-radius: 4px;
+  text-align: center;
+}
+
+.btn:hover {
+  opacity: 1;
+}
+
+.fa {
+  margin-right: 5px;
+}
+
+header {
+  height: 65px;
+  width: 100%;
+  background-color: rgba(81, 46, 2, 1);
+  position :fixed;
+  top: 0;
+  z-index: 10;
+}
+
+.logo {
+  width: 55px;
+  position: absolute;
+  top: 50%;
+  left: 15px;
+  transform: translateY(-50%);
+  border-radius: 50%;
+  object-fit: cover;
+}
+
+.header-left {
+  float: left;
+}
+
+.header-right {
+  float: right;
+  margin-right: -25px;
+}
+
+.header-right a {
+  line-height: 65px;
+  padding: 0 25px;
+  color: white;
+  display: block;
+  float: left;
+  transition: all 0.5s;
+  font-size: 25px;
+}
+
+.header-right a:hover {
+  background-color: rgba(255, 255, 255, 0.3);
+}
+
+/* menu-iconのCSSを貼り付けてください */
+.menu-icon {
+  color: white;
+  float: right;
+  font-size: 25px;
+  padding: 21px 0;
+  /* displayをnoneに指定してください */
+  display: none;
+}
+
+.lesson-wrapper {
+  padding-bottom: 80px;
+  padding-left: 5%;
+  padding-right: 5%;
+  background-color: #f7f7f7;
+  text-align: center;
+}
+
+.heading {
+  padding-top: 80px;
+  padding-bottom: 50px;
+  color: #5f5d60;
+}
+
+.heading h2 {
+  font-weight: normal;
+}
+
+.lessons {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: flex-start; /* ← 左寄せ */
+}
+
+.lesson {
+  float: left;
+  width: 25%;
+  padding: 20px;
+}
+
+.lesson-icon {
+  width: 100%;
+}
+
+.lesson-icon p {
+  color: rgb(0, 0, 0);
+  font-size: 35px;
+  text-align: center;
+  margin: 0 0 8px 0; /* ← 画像との間隔 */
+}
+
+.lesson-icon img {
+  width: 100%;
+  border-radius: 10%;
+  display: block;
+}
+
+.lesson-icon img:hover {
+  transform: translateY(-4px) scale(1.02);
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.25);
+}
+
+.text-contents {
+  width: 80%;
+  display: inline-block;
+  margin-top: 15px;
+  font-size: 13px;
+  color: #484748;
+}
+
+.heading h3 {
+  font-weight: normal;
+}
+
+.message-wrapper {
+  border-bottom: 1px solid #eee;
+  padding-bottom: 80px;
+  text-align: center;
+}
+
+.message {
+  padding: 15px 40px;
+  background-color: #5dca88;
+  box-shadow: 0 7px #1a7940;
+}
+
+.message:active {
+  position: relative;
+  top: 7px;
+  box-shadow: none;
+}
+
+footer img {
+  width: 125px;
+}
+
+footer p {
+  color: #b3aeb5;
+  font-size: 12px;
+}
+
+footer {
+  padding-top: 30px;
+  padding-bottom: 20px;
+  text-align: center;
+}
