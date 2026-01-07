@@ -1,3 +1,7 @@
+body {
+    background-color: rgb(225, 220, 220);
+}
+
 .photo-grid {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
@@ -48,4 +52,41 @@
 .photo:hover {
     transform: translateY(-10px); /* 上に浮かせる */
     box-shadow: 0 10px 20px rgba(0,0,0,0.3); /* 影で浮き感 */
+}
+
+/* 説明エリア（最初は非表示） */
+.photo-detail {
+  display: none;
+  margin: 40px auto;
+  max-width: 900px;
+  gap: 30px;
+  align-items: center;
+}
+
+/* クリックされた写真だけ表示 */
+.photo-detail:target {
+  display: flex;
+}
+
+/* 詳細画像 */
+.photo-detail img {
+  width: 350px;
+  border-radius: 15px;
+}
+
+/* 説明文 */
+.description {
+  max-width: 400px;
+}
+
+/* スマホ版：縦並び */
+@media screen and (max-width: 768px) {
+  .photo-detail {
+    flex-direction: column;
+    text-align: center;
+  }
+
+  .photo-detail img {
+    width: 90%;
+  }
 }
