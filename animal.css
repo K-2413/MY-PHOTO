@@ -10,7 +10,7 @@ body {
     max-width: 400px;
     aspect-ratio: 1 / 2;
     overflow: hidden;
-    border-radius: 15px;
+    border-radius: 40px;
     background: white;
     gap: 0;
     margin: 100px auto 0 auto;
