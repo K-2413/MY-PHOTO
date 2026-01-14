@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Pacifico&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="stylesheet.css">
+    <link rel="stylesheet" href="responsive.css">
+    <link rel="stylesheet" href="method&term.css">
+    <title>写真を上手く撮る方法・使用用語</title>
+</head>
+<body>
+    <header>
+      <div class="container">
+        <div class="header-left">
+          <img class="logo" src="phto/Kei.jpg">
+        </div>
+        
+        <span class="fa fa-bars menu-icon"></span>
+  
+        <div class="header-right">
+          <a href="index.html">トップページへ</a>
+          <a href="animal.html">動物</a>
+          <a href="plant.html">植物</a>
+          <a href="landscape.html">風景</a>
+          <a href="building.html">建物</a>
+          <a href="food.html">食べ物</a>
+          <a href="art.html">アート</a>
+          <a href="night_view.html">夜景</a>
+        </div>
+      </div>
+    </header>
+    <div class="h1">写真を上手く撮る方法</div>
+    <div class="box30">
+      <div class="box-title">ステップ1 何を撮りたいか決める</div>
+      <p>人物なのか、風景なのか、夜景なのかなどを決める。そして何を伝えたいのかも明白に綺麗さを
+        伝えたいのか、かっこよさを伝えたいのか、可愛いを伝いたいのかなどがあると
+        <strong>目的が決まると構図も光も決めやすくなる</strong>
+      </p>
+    </div>
+
+    <div class="box30">
+      <div class="box-title">ステップ2 光を意識する</div>
+      <p>
+        写真は<strong>光が8割</strong>重要です。
+        基本なルールは明るい場所で撮り、逆光は避けて、横や斜めから光が当たるようにするなどするとより立体感がUPします。
+        おすすめの時間帯は朝・夕方・曇りの日（影が柔らかくて撮りやすいから）です。
+      </p>
+    </div>
+
+    <div class="box30">
+      <div class="box-title">ステップ3 背景を整理する</div>
+      <p>
+        被写体より背景がうるさいと失敗しやすいです。
+        後ろにごちゃごちゃしたものはないか、電柱・人・文字が被写体に刺さってないかなど
+        背景がシンプルが一番良いです。つまり写真が一気に上手く見えるということです。
+      </p>
+    </div>
+
+    <div class="box30">
+      <div class="box-title">ステップ4 構図を使う</div>
+      <p>
+        基本な構図は三つあります。まず一つ目は<strong>三分割構図</strong>です。画面を縦横3分割にし、被写体を線や交点に置く。
+        二つ目は<strong>中央構図</strong>です。被写体をど真ん中にし、シンプルで強い印象を与えます。
+        最後に三つ目は<strong>余白を作る</strong>です。あえて空や壁を多めに入れることでおしゃれでエモい写真になります。
+      </p>
+    </div>
+
+    <div class="box30">
+      <div class="box-title">ステップ5 カメラの位置を変える</div>
+      <p>
+        同じ場所でも印象が激変することがあります。しゃがんだり（ローアングル）、高い位置から撮ったり、斜めから撮ると
+        立ったまま撮った写真より遥かに美しい写真になります。
+      </p>
+    </div>
+
+    <div class="box30">
+      <div class="box-title">ステップ6 ピントをしっかり合わせる</div>
+      <p>
+        主役になるものにピントを合わせる。スマホならタップしてピント固定。
+        ピントが合ってなくてボケている写真は「味」ではなくて「失敗」にないやすいです。
+      </p>
+    </div>
+
+    <div class="box30">
+      <div class="box-title">ステップ7 撮った後に選ぶ・編集する</div>
+      <p>
+        プロでも一発撮りはしません。同じ構図から何枚か撮って、その中から一番良いものを選びます。
+        選んだら編集もします。明るさを少し上げたり、コントラストを少し下げたり、色も付けたりします。
+        色はあまりいじり過ぎないのが良いです。
+      </p>
+    </div>
+
+    <div class="box30">
+      <div class="box-title">ステップ8 とにかく撮る</div>
+      <p>
+        上手い人ほど枚数が多いです。失敗写真は成長のデータです。
+      </p>
+    </div>
+
+    <div class="message-wrapper">
+      <div class="container">
+        <div class="heading">
+        </div>
+      </div>
+    </div>
+
+    <footer>
+      <div class="container">
+        <img src="phto/Kei.jpg">
+        <p>@BEAUTIFUL PICTURE.</p>
+      </div>
+    </footer>
+
+    <script>
+  const menuIcon = document.querySelector('.menu-icon');
+  const menu = document.querySelector('.header-right');
+
+  menuIcon.addEventListener('click', () => {
+    menu.classList.toggle('active');
+
+    
+    if (menu.classList.contains('active')) {
+      menuIcon.classList.remove('fa-bars');
+      menuIcon.classList.add('fa-times'); 
+    } else {
+      menuIcon.classList.remove('fa-times');
+      menuIcon.classList.add('fa-bars'); 
+    }
+  });
+</script>
+</body>
+</html>

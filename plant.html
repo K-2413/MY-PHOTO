@@ -16,17 +16,18 @@
         <div class="header-left">
           <img class="logo" src="phto/Kei.jpg">
         </div>
-        <!-- ここにスマートフォン用のメニューアイコンを追加してください -->
+        
         <span class="fa fa-bars menu-icon"></span>
   
         <div class="header-right">
-          <a href="index.html#animal">動物</a>
-          <a href="index.html#plant">植物</a>
-          <a href="index.html#landscape">風景</a>
-          <a href="index.html#building">建物</a>
-          <a href="index.html#food">食べ物</a>
-          <a href="index.html#art">アート</a>
-          <a href="index.html#night_view">夜景</a>
+          <a href="index.html">トップページへ</a>
+          <a href="animal.html">動物</a>
+          <a href="plant.html">植物</a>
+          <a href="landscape.html">風景</a>
+          <a href="building.html">建物</a>
+          <a href="food.html">食べ物</a>
+          <a href="art.html">アート</a>
+          <a href="night_view.html">夜景</a>
         </div>
       </div>
     </header>
@@ -203,7 +204,7 @@
           <h2>さぁ、あなたも写真マニアになりませんか?</h2>
           <h3>うまく写真を撮るには以下をクリック！</h3>
         </div>
-        <a href="#" class="btn message">写真をうまく撮るコツや用語集</a>
+        <a href="method&term.html" class="btn message">写真をうまく撮るコツや用語集</a>
       </div>
     </div>
 
@@ -221,13 +222,13 @@
   menuIcon.addEventListener('click', () => {
     menu.classList.toggle('active');
 
-    // アイコン切り替え
+    
     if (menu.classList.contains('active')) {
       menuIcon.classList.remove('fa-bars');
-      menuIcon.classList.add('fa-times'); // ×
+      menuIcon.classList.add('fa-times'); 
     } else {
       menuIcon.classList.remove('fa-times');
-      menuIcon.classList.add('fa-bars'); // ☰
+      menuIcon.classList.add('fa-bars'); 
     }
   });
 </script>

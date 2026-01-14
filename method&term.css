@@ -1,0 +1,30 @@
+.h1 {
+    margin: 80px 0 20px 4px; 
+    font-size: 2rem;
+    font-weight: 600;
+    text-align: left;
+    border-bottom: 3px solid #333;
+    padding-bottom: 8px;
+    /*display: inline-block; */
+}
+
+.box30 {
+    margin: 80px auto 1em auto; 
+    width: 80%;                
+    max-width: 400px;          
+    background: #ffe4c4;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.22);
+}
+.box30 .box-title {
+    font-size: 1.2em;
+    background: #754b01;
+    padding: 4px;
+    text-align: center;
+    color: #FFF;
+    font-weight: bold;
+    letter-spacing: 0.05em;
+}
+.box30 p {
+    padding: 15px 20px;
+    margin: 0;
+}

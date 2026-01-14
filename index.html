@@ -15,7 +15,7 @@
         <div class="header-left">
           <img class="logo" src="phto/Kei.jpg">
         </div>
-        <!-- ここにスマートフォン用のメニューアイコンを追加してください -->
+        
         <span class="fa fa-bars menu-icon"></span>
   
         <div class="header-right">
@@ -110,16 +110,20 @@
           <div class="lesson">
             <div class="lesson-icon">
               <p id="art">アート</p>
+              <a href="art.html">
               <img src="phto/3C480C39-FA81-4110-8DA1-582ECC7719DB_1_105_c.jpeg">
+              </a>
             </div>
             <p class="text-contents">自由な発想や感情を、写真という形で表現しています。正解はなく、感じたままに楽しんでもらえたら嬉しいです。</p>
           </div>
           <div class="lesson">
             <div class="lesson-icon">
               <p id="night_view">夜景</p>
+              <a href="night_view.html">
               <img src="phto/phto02.jpeg">
+              </a>
             </div>
-            <p class="text-contents">自由な発想や感情を、写真という形で表現しています。正解はなく、感じたままに楽しんでもらえたら嬉しいです。</p>
+            <p class="text-contents">夜の街は、光と影がつくるもう一つの世界。シャッターを切るたびに、その一瞬が記憶として残ります。</p>
           </div>
           
           <div class="clear"></div>
@@ -132,7 +136,7 @@
           <h2>さぁ、あなたも写真マニアになりませんか?</h2>
           <h3>うまく写真を撮るには以下をクリック！</h3>
         </div>
-        <a href="#" class="btn message">写真をうまく撮るコツや用語集</a>
+        <a href="method&term.html" class="btn message">写真をうまく撮るコツや用語集</a>
       </div>
     </div>
     <footer>
@@ -148,13 +152,12 @@
   menuIcon.addEventListener('click', () => {
     menu.classList.toggle('active');
 
-    // アイコン切り替え
     if (menu.classList.contains('active')) {
       menuIcon.classList.remove('fa-bars');
-      menuIcon.classList.add('fa-times'); // ×
+      menuIcon.classList.add('fa-times'); 
     } else {
       menuIcon.classList.remove('fa-times');
-      menuIcon.classList.add('fa-bars'); // ☰
+      menuIcon.classList.add('fa-bars'); 
     }
   });
 </script>
