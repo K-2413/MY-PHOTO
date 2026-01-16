@@ -120,6 +120,8 @@ header {
 .header-right {
   float: right;
   margin-right: -25px;
+  flex-wrap: nowrap;
+  white-space: nowrap;
 }
 
 .header-right a {
