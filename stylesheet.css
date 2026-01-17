@@ -118,7 +118,6 @@ header {
 }
 
 .header-right {
-  display: flex;
   align-items: center;
   float: right;
   margin-right: -25px;
@@ -256,6 +255,11 @@ footer {
 
 [id] {
   scroll-margin-top: 100px; /* ヘッダーの高さ */
+}
+
+h5 {
+  font-size: 40px;
+   top: 65px;
 }
 
 @keyframes blink {
