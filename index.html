@@ -1,41 +1,290 @@
 <!DOCTYPE html>
 <html lang="ja">
 <head>
-  <meta charset="UTF-8">
-  <title>Keiのホームページ一覧</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <style>
-    body {
-      margin: 0;
-      height: 100vh;
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-      align-items: center;
-      background: #111;
-      color: #fff;
-      font-family: sans-serif;
-    }
-    a {
-  width: 220px;          /* ← これを追加 */
-  text-align: center;    /* ← 文字を中央寄せ */
-  color: #fff;
-  text-decoration: none;
-  border: 1px solid #fff;
-  padding: 15px 0;       /* 横paddingは0にすると綺麗 */
-  margin: 10px;
-  border-radius: 30px;
-  transition: 0.3s;
-}
-    a:hover {
-      background: #fff;
-      color: #111;
-    }
-  </style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Premium Showcase</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        :root {
+            --bg-color: #050505;
+            --card-bg: #111111;
+            --accent: #ffffff;
+        }
+
+        body {
+            background-color: var(--bg-color);
+            color: #ffffff;
+            margin: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            font-family: 'Inter', -apple-system, sans-serif;
+            overflow-x: hidden;
+            touch-action: pan-y;
+        }
+
+        /* メインの縦レイアウト */
+        .content-wrapper {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            width: 100%;
+            padding: 20px;
+        }
+
+        /* サイトのメインタイトル */
+        h1 {
+            font-size: 4rem;
+            font-weight: 800;
+            margin-bottom: 40px;
+            letter-spacing: 0.1em;
+            text-transform: uppercase;
+            background: linear-gradient(180deg, #ffffff 0%, #666666 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            text-align: center;
+        }
+
+        /* スライダー全体の枠組み（矢印を含む） */
+        .main-container {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 30px;
+            width: 100%;
+            max-width: 1200px;
+        }
+
+        /* カードが表示されるエリア */
+        .slider-viewport {
+            position: relative;
+            width: 340px;
+            height: 500px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        /* カードの浮き上がりデザイン */
+        .card {
+            position: absolute;
+            width: 100%;
+            height: 460px;
+            background: var(--card-bg);
+            border-radius: 24px;
+            overflow: hidden;
+            opacity: 0;
+            transform: scale(0.9);
+            transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+            pointer-events: none;
+            box-shadow: 0 40px 80px rgba(0, 0, 0, 1), 
+                        inset 0 0 0 1px rgba(255, 255, 255, 0.08);
+            display: flex;
+            flex-direction: column;
+        }
+
+        .card.active {
+            opacity: 1;
+            transform: scale(1);
+            pointer-events: auto;
+            z-index: 2;
+        }
+
+        .card-img {
+            width: 100%;
+            height: 260px;
+            object-fit: cover;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+        }
+
+        .card-body {
+            padding: 24px;
+        }
+
+        .card-title {
+            font-size: 1.4rem;
+            font-weight: 700;
+            margin-bottom: 12px;
+            color: #f0f0f0;
+        }
+
+        .card-text {
+            color: #999;
+            font-size: 0.9rem;
+            line-height: 1.6;
+        }
+
+        /* カードの外側に配置される矢印ボタン */
+        .nav-button {
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            background: rgba(255, 255, 255, 0.03);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            color: white;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            flex-shrink: 0;
+        }
+
+        .nav-button:hover {
+            background: var(--accent);
+            color: black;
+            transform: scale(1.1);
+            box-shadow: 0 0 20px rgba(255, 255, 255, 0.2);
+        }
+
+        /* 下部のドット */
+        .dots-container {
+            position: absolute;
+            bottom: -40px;
+            left: 50%;
+            transform: translateX(-50%);
+            display: flex;
+            gap: 10px;
+        }
+
+        .dot {
+            width: 8px;
+            height: 8px;
+            border-radius: 50%;
+            background: rgba(255, 255, 255, 0.2);
+            transition: all 0.3s ease;
+        }
+
+        .dot.active {
+            background: var(--accent);
+            transform: scale(1.2);
+        }
+
+        /* スマホ向け調整 */
+        @media (max-width: 600px) {
+            h1 {
+                font-size: 1.8rem;
+                margin-bottom: 20px;
+            }
+            .main-container {
+                gap: 10px;
+            }
+            .slider-viewport {
+                width: 280px;
+                height: 440px;
+            }
+            .card {
+                height: 400px;
+            }
+            .nav-button {
+                width: 40px;
+                height: 40px;
+            }
+        }
+    </style>
+    <script src="https://unpkg.com/lucide@latest"></script>
 </head>
 <body>
-  <h1>Keiのホームページ一覧</h1>
-  <a href="photo/">Keiのポートフォリオ</a>
-  <a href="EC/">電子部品の紹介</a>
+
+    <div class="content-wrapper">
+        <!-- Main Title -->
+        <h1>Keiのホームページ一覧</h1>
+
+        <div class="main-container">
+            <!-- Left Arrow -->
+            <button class="nav-button" id="prevBtn" aria-label="Previous">
+                <i data-lucide="chevron-left"></i>
+            </button>
+
+            <!-- Slider Viewport -->
+            <div class="slider-viewport" id="sliderArea">
+                <!-- Card 1 -->
+                <div class="card active">
+                    <img src="photo/img/top2.jpg" class="card-img" alt="Gallery 1">
+                    <div class="card-body">
+                        <h2 class="card-title">私のポートフォリオ</h2>
+                        <p class="card-text">私が撮った写真を紹介しています。うまく撮る方法も書いてありますのでご覧になってください。</p>
+                    </div>
+                </div>
+
+                <!-- Card 2 -->
+                <div class="card">
+                    <img src="EC/img/1.jpeg" class="card-img" alt="Gallery 2">
+                    <div class="card-body">
+                        <h2 class="card-title">電子部品の紹介</h2>
+                        <p class="card-text">電子部品の紹介をしております。電子部品に興味のある人や知りたい人はぜひご覧になってください。</p>
+                    </div>
+                </div>
+
+            
+                
+
+                <!-- Dots -->
+                <div class="dots-container" id="dots"></div>
+            </div>
+
+            <!-- Right Arrow -->
+            <button class="nav-button" id="nextBtn" aria-label="Next">
+                <i data-lucide="chevron-right"></i>
+            </button>
+        </div>
+    </div>
+
+    <script>
+        lucide.createIcons();
+
+        const cards = document.querySelectorAll('.card');
+        const dotsContainer = document.getElementById('dots');
+        const prevBtn = document.getElementById('prevBtn');
+        const nextBtn = document.getElementById('nextBtn');
+        const sliderArea = document.getElementById('sliderArea');
+
+        let currentIndex = 0;
+        let startX = 0;
+
+        // ドットの生成
+        cards.forEach((_, i) => {
+            const dot = document.createElement('div');
+            dot.classList.add('dot');
+            if (i === 0) dot.classList.add('active');
+            dotsContainer.appendChild(dot);
+        });
+        const dots = document.querySelectorAll('.dot');
+
+        function showCard(index) {
+            cards[currentIndex].classList.remove('active');
+            dots[currentIndex].classList.remove('active');
+
+            if (index < 0) currentIndex = cards.length - 1;
+            else if (index >= cards.length) currentIndex = 0;
+            else currentIndex = index;
+
+            cards[currentIndex].classList.add('active');
+            dots[currentIndex].classList.add('active');
+        }
+
+        prevBtn.addEventListener('click', () => showCard(currentIndex - 1));
+        nextBtn.addEventListener('click', () => showCard(currentIndex + 1));
+
+        sliderArea.addEventListener('touchstart', (e) => {
+            startX = e.touches[0].clientX;
+        }, { passive: true });
+
+        sliderArea.addEventListener('touchend', (e) => {
+            const endX = e.changedTouches[0].clientX;
+            const diff = startX - endX;
+            if (Math.abs(diff) > 50) {
+                if (diff > 0) showCard(currentIndex + 1);
+                else showCard(currentIndex - 1);
+            }
+        });
+
+        document.addEventListener('keydown', (e) => {
+            if (e.key === 'ArrowLeft') showCard(currentIndex - 1);
+            if (e.key === 'ArrowRight') showCard(currentIndex + 1);
+        });
+    </script>
 </body>
 </html>
