@@ -99,6 +99,66 @@
             border-bottom: 1px solid rgba(255, 255, 255, 0.05);
         }
 
+        /* 画像ラッパー */
+.img-wrap {
+    position: relative;
+    display: block;
+}
+
+/* タップ文字（中央） */
+.tap-text {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-size: 1.5rem;
+    font-weight: 700;
+    letter-spacing: 0.2em;
+    color: #fff;
+    opacity: 0;
+    animation: tapFade 3s infinite;
+    pointer-events: none;
+    text-shadow: 0 0 15px rgba(255,255,255,0.6);
+    /*text-shadow:
+        -1px -1px 0 #000,
+         1px -1px 0 #000,
+        -1px  1px 0 #000,
+         1px  1px 0 #000,
+         0  0 15px rgba(255,255,255,0.6);*/
+}
+
+/* フワッと表示アニメーション */
+@keyframes tapFade {
+    0% { opacity: 0; transform: translate(-50%, -50%) scale(0.95); }
+    20% { opacity: 1; transform: translate(-50%, -50%) scale(1); }
+    60% { opacity: 1; }
+    100% { opacity: 0; transform: translate(-50%, -50%) scale(1.05); }
+}
+
+/* 虫眼鏡アイコン（右上） */
+.zoom-icon {
+    position: absolute;
+    top: 12px;
+    right: 12px;
+    width: 36px;
+    height: 36px;
+    border-radius: 50%;
+    background: rgba(0,0,0,0.6);
+    border: 1px solid rgba(255,255,255,0.3);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    backdrop-filter: blur(4px);
+    box-shadow: 0 0 12px rgba(255,255,255,0.25);
+    pointer-events: none;
+}
+
+.zoom-icon svg {
+    width: 18px;
+    height: 18px;
+}
+
         .card-body {
             padding: 20px;
         }
@@ -214,7 +274,42 @@
             <div class="slider-viewport" id="sliderArea">
                 <!-- Card 1 -->
                 <div class="card active">
-                    <a href="photo/index.html"><img src="photo/img/top2.jpg" class="card-img" alt="Gallery 1"></a>
+                    <a href="photo/index.html" class="img-wrap">
+    <img src="photo/img/top2.jpg" class="card-img" alt="Gallery 1">
+
+    <!-- タップ文字 -->
+    <div class="tap-text">タップ</div>
+
+    <!-- 虫眼鏡アイコン -->
+    <div class="zoom-icon">
+        <i data-lucide="search-plus">
+            <svg xmlns="http://www.w3.org/2000/svg"
+     width="48" height="48"
+     viewBox="0 0 48 48">
+
+  <g fill="none"
+     stroke="#ffffff"
+     stroke-width="4"
+     stroke-linecap="round"
+     stroke-linejoin="round">
+
+    <!-- 虫眼鏡の円（中は透明） -->
+    <circle cx="21" cy="21" r="17" />
+
+    <!-- プラス縦 -->
+    <line x1="21" y1="15" x2="21" y2="27" />
+
+    <!-- プラス横 -->
+    <line x1="15" y1="21" x2="27" y2="21" />
+
+    <!-- 持ち手 -->
+    <line x1="33.2" y1="33.2" x2="41.7" y2="41.7" />
+
+  </g>
+</svg>
+        </i>
+    </div>
+</a>
                     <div class="card-body">
                         <h2 class="card-title">私のポートフォリオ</h2>
                         <p class="card-text">私が撮った写真を紹介しています。うまく撮る方法も書いてありますのでご覧になってください。</p>
